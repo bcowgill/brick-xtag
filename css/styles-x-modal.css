@@ -1,0 +1,61 @@
+/* styles.css */
+
+/* Tags */
+
+body
+{
+	font-family: Segoe UI, Trebuchet MS, Helvetica, Arial;
+	font-size: 14px;
+	background: url(/images/chruch.png);
+	overflow: hidden;
+}
+
+h1, h2, h3 {
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 140%;
+}
+
+h2 {
+	font-size: 125%;
+	margin: 16px 0 8px;
+}
+
+h3 {
+	font-size: 115%;
+}
+
+h4 {
+	font-size: 110%;
+}
+
+em {
+	font-weight: bold;
+}
+
+#modal_demo_element {
+	width: 90%;
+	max-width: 350px;
+	border-radius: 4px;
+	background-color: white;
+}
+
+#modal_demo_element > div {
+	padding: 4px 5px;
+	-webkit-box-shadow: 0 4px 16px 4px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 4px 16px 4px rgba(0, 0, 0, 0.5);
+	-ms-box-shadow: 0 4px 16px 4px rgba(0, 0, 0, 0.5);
+	-o-box-shadow: 0 4px 16px 4px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 4px 16px 4px rgba(0, 0, 0, 0.5);
+}
+
+#modal_demo_element p {
+	padding: 12px;
+}
+
+#modal_demo_element {
+	height: 200px;
+	border: 1px solid #aaa;
+}

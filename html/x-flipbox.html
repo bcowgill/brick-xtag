@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Brick - x-flipbox - Test</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="../brick/dist/brick.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/styles.css"/>
+	<script type="text/javascript" src="../brick/dist/brick.js"></script>
+</head>
+<body>
+	<div class="two-up">
+		<figure class="demo largeprint">
+			<x-flipbox id="flipbox" direction="up">
+				<div>I'm the front face.</div>
+				<div>And I'm the back face.</div>
+			</x-flipbox>
+		</figure>
+	</div>
+
+	<script>
+	// make a flipbox handler function which changes the flip direction after
+	// it returns to the front facing side.
+	function makeFlipHandler(delay)
+	{
+		var timer = undefined, Directions = ["right", "up", "left", "down"];
+		delay = delay || 1000;
+		return function ()
+		{
+			var self = this, flipped = self.hasAttribute('flipped');
+			if (flipped && !timer)
+			{
+				timer = setInterval(function () {
+					var idx = Directions.indexOf(self.getAttribute('direction'));
+					clearInterval(timer);
+					timer = undefined;
+					if (++idx >= Directions.length)
+					{
+						idx = 0;
+					}
+					self.setAttribute("direction", Directions[idx]);
+					}, delay);
+			}
+			self.toggle();
+		};
+	}
+	document.addEventListener('DOMComponentsLoaded', function(){
+		var flipBox = document.getElementById("flipbox");
+		window.DEBUG=flipBox;
+		flipBox.addEventListener("click", makeFlipHandler());
+	});
+	</script>
+</body>
+</html>

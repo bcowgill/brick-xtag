@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project 42 Cambridge Data</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/x-tag-components.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/styles-x-modal.css"/>
+<!--
+	Contained in x-tag-companents.js
+	<script src="../x-tag-core/dist/x-tag-core.min.js"></script>
+-->
+	<script type="text/javascript" src="/js/x-tag-components.js"></script>
+</head>
+<body>
+	<div id="modal_demo">
+		<table class="demo-element">
+		<tr>
+			<td>
+			<button>Show Modal</button>
+			</td>
+		</tr>
+		</table>
+	</div>
+
+<!-- click-hide attr??? -->
+	<x-modal id="modal_demo_element" class="x-modal"  overlay hidden>
+		<div>
+			<h3>Modal Demo</h3>
+			<p>Hello, I'm an auto-magical modal, how do you do?</p>
+			<footer>
+			<button>Hide Modal</button>
+			</footer>
+		</div>
+	</x-modal>
+
+<script type="text/javascript">
+	xtag.addEvents(document, {
+		'tap:delegate(#modal_demo table button)': function(){
+			if (this.className == '') {
+			this.className = 'showing';
+			this.innerHTML = 'Hide Modal';
+			document.querySelector('#modal_demo_element').toggle();
+			}
+			else {
+			this.className = '';
+			this.innerHTML = 'Show Modal';
+			document.querySelector('#modal_demo_element').toggle();
+			}
+		},
+		'tap:delegate(#modal_demo_element button)': function(){
+			var button = document.querySelector('#modal_demo table button');
+			button.className = '';
+			button.innerHTML = 'Show Modal';
+			document.querySelector('#modal_demo_element').toggle();
+		}
+	});
+
+</script>
+
+</body>
+</html>
